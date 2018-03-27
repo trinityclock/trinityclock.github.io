@@ -1,0 +1,67 @@
+---
+title: Monitor
+permalink: monitor
+---
+					<!--bof info panel 2 heading-->
+							<div class="panel-heading">
+
+								<h4>Monitor</h4>
+
+							</div>
+
+							<!--bof info panel 2 body-->
+							<div class="panel-body" >
+
+
+<table>
+<tr>
+<td>
+	<a href="/clock"><img src="{{site.url}}graph/?from=-20days&to=today&channel2=going&channel=pressure&type=xy&scale=fixed&skip=30" width="400"></a>
+	<br>
+	<a href="/clock"><img src="{{site.url}}graph/?from=-20days&to=today&channel=temp&channel2=going&autoscale&skip=30" width="400"></a>
+<td>
+</tr>
+
+<tr>
+<td>
+
+<a href="/clock">
+<img src="{{site.url}}graph/?from=-10days&to=today&channel=drift&autoscale=auto" width="550"></a>
+<br>
+<img src="{{site.url}}graph/?from=-10days&to=today&channel=pressure&autoscale=auto" width="550">
+<br>
+<img src="{{site.url}}graph/?from=-10days&to=today&channel=amp&skip=20&ymax=49&ymin=46" width="550" >
+<br>
+<img src="{{site.url}}graph/?from=-10days&to=today&channel=temp&autoscale=auto" width="550">
+<br>
+<img src="{{site.url}}graph/?from=-10days&to=today&channel=going&autoscale=auto"
+width="550">
+
+</td>
+</tr>
+</table>
+
+<img src="{{site.url}}graph/?from=-10days&to=today&channel=amp&skip=20&ymax=49&ymin=46" >
+<img src="{{site.url}}graph/?from=-10days&to=today&channel=going">
+<img src="{{site.url}}graph/?from=-10days&to=today&channel=goingest">
+<img src="{{site.url}}graph/?from=-10days&to=today&channel=drift&ymin=-3&ymax=3">
+<img src="{{site.url}}graph/?from=-10days&to=today&channel=driftest&ymin=-3&ymax=3">
+<br>
+<!-- going = 12.9*(T-16) - 8.616*(P-1014.2)  -  40*dT/dt    as at Nov 2009-->
+<!-- going = -2.46*(T-16) - 9.08*(P-1020) - 15*dT/dt )    estimate  as at Jan 2010-->
+going = -2.46*(T-16) - 1*(P-1020) - 15*dT/dt )    estimate  as at Apr 2010 with Barometric Compensator
+<br>
+but the barocompensator seems not to be working as of Dec 2010, so we're using
+<br>
+going = -120*($temp-10)-8*($pres-1013)-40*$dTdt -540);
+
+
+
+
+
+
+
+
+							<!--eof info panel 2 body-->
+							</div>
+

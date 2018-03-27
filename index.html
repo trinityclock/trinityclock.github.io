@@ -1,5 +1,4 @@
 ---
-layout: default
 title: The Trinity Clock
 ---
 
@@ -13,12 +12,12 @@ title: The Trinity Clock
 <div class="panel-body" >
 
 
-		<p>The <a href="main.php?menu_option=history">pendulum clock</a> in <a href="http://trin.cam.ac.uk">
+		<p>The <a href="{{site.url}}history">pendulum clock</a> in <a href="http://trin.cam.ac.uk">
 		Trinity College, Cambridge</a> was installed in 1910.  It is remarkably accurate, known to be better than one second per month.  In 2009 a system was installed to monitor the "going".
 		The work was done as part of a 4th year MEng project at the <a href="http://www.eng.cam.ac.uk/">Engineering Department</a>.
 		A sensor on the pendulum detects the going of the clock, which is compared to the accurate time signal from a GPS receiver.
     For an entirely mechanical clock the accuracy is remarkable.
-   Watch the clock  <a href="<?php echo get_img_base_url(0); ?>img/clock_striking_twelve.wmv"> strike twelve </a> or hear it strike twelve at
+   Watch the clock  <a href="{{site.url}}img/clock_striking_twelve.wmv"> strike twelve </a> or hear it strike twelve at
      <a href="https://youtu.be/kisuNCFfl4c "> Singing from the Towers </a> .
 Follow <a href="https://twitter.com/clockkeeper"> @clockkeeper </a> on twitter.
    <a href="https://www.cl.cam.ac.uk/research/dtg/weather/daily-graph.cgi?today "> Today's </a> and
@@ -28,12 +27,12 @@ Follow <a href="https://twitter.com/clockkeeper"> @clockkeeper </a> on twitter.
 
 		<br/>
 
-		<img src="graph/?channel=drift&from=today+-+30+days&to=today&width=700&autoscale" />
+		<img src="{{site.url}}graph/?channel=drift&from=today+-+30+days&to=today&width=700&autoscale" />
                                                                         <!--width="700" height="200"-->
 
 		<br/>
 
-		A <a href="main.php?menu_option=barometric"> barometric compensator </a> was installed at clock change - midnight 28 March 2010.
+		A <a href="{{site.url}}barometric"> barometric compensator </a> was installed at clock change - midnight 28 March 2010.
 
 		<br/>
 		The clock is regulated as infrequently as possible so as to stay within +/- 5 seconds of the correct time.

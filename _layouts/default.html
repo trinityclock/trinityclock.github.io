@@ -11,15 +11,15 @@
 <title>{{page.title}}</title>
 
 	<!--js references-->
-    <script src="https://trin-hosts.trin.cam.ac.uk/clock/js/jquery.min.js"></script>
-    <script src="https://trin-hosts.trin.cam.ac.uk/clock/js/bootstrap.min.js"></script>
-    <script src="https://trin-hosts.trin.cam.ac.uk/clock/js/bootstrap_optins/tooltip.js"></script>
-    <script src="https://trin-hosts.trin.cam.ac.uk/clock/js/clock.js"></script>
-    <script type="text/javascript" src="https://trin-hosts.trin.cam.ac.uk/clock/js/datechooser/datechooser.js"></script>
+    <script src="{{site.url}}js/jquery.min.js"></script>
+    <script src="{{site.url}}js/bootstrap.min.js"></script>
+    <script src="{{site.url}}js/bootstrap_optins/tooltip.js"></script>
+    <script src="{{site.url}}js/clock.js"></script>
+    <script type="text/javascript" src="{{site.url}}js/datechooser/datechooser.js"></script>
     <!--css references-->
-    <link rel="stylesheet" href="https://trin-hosts.trin.cam.ac.uk/clock/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://trin-hosts.trin.cam.ac.uk/clock/css/clock.css">
-    <link rel="stylesheet" href="https://trin-hosts.trin.cam.ac.uk/clock/css/datechooser.css">
+    <link rel="stylesheet" href="{{site.url}}css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{site.url}}css/clock.css">
+    <link rel="stylesheet" href="{{site.url}}css/datechooser.css">
 
     <style>
 	</style>
@@ -39,7 +39,7 @@
 				<table style="width:100%">
 				<tr>
 				<td style="text-align:left;width:33%">
-				<img src="https://trin-hosts.trin.cam.ac.uk/clock/img/logo.png" style="width:150px;border:none;padding:3px"/>
+				<img src="{{site.url}}img/logo.png" style="width:150px;border:none;padding:3px"/>
 				</td>
 				<td style="text-align:center;width:33%">
 				<h4>THE TRINITY CLOCK</h4>
@@ -49,7 +49,7 @@
 				</td>
 				<td style="text-align:right;width:33%">
 
-					<button type="button" class="btn btn-default btn-lg" onclick="location.href='https://twitter.com/clockkeeper';"><span><img src="https://trin-hosts.trin.cam.ac.uk/clock/img/twitter_button.png"></span></button>
+					<button type="button" class="btn btn-default btn-lg" onclick="location.href='https://twitter.com/clockkeeper';"><span><img src="{{site.url}}img/twitter_button.png"></span></button>
 
 					<button type="button" class="btn btn-default btn-lg" onclick="location.href='http://www.trin.cam.ac.uk';">Trinity Home Page</button>
 
@@ -84,7 +84,7 @@
 
 								<tr><td style="text-align:center">
 
-									 <img src="https://trin-hosts.trin.cam.ac.uk/clock/img/TCclock_closeup.JPG" style="border:none;width:200px;height:200px;border-radius:30px;-moz-border-radius:30px;-khtml-border-radius:30px;-webkit-border-radius:30px;" />
+									 <img src="{{site.url}}img/TCclock_closeup.JPG" style="border:none;width:200px;height:200px;border-radius:30px;-moz-border-radius:30px;-khtml-border-radius:30px;-webkit-border-radius:30px;" />
 
 								</td></tr>
 
@@ -98,9 +98,9 @@
 
 										<button class="btn btn-default" type="button" onclick="location.href='introduction'">Monitoring Project - Introduction</button>
 
-										<button class="btn btn-default" type="button" onclick="location.href='main.php?menu_option=history'">History of the Clock</button>
+										<button class="btn btn-default" type="button" onclick="location.href='history'">History of the Clock</button>
 
-										<button class="btn btn-default" type="button" onclick="location.href='main.php?menu_option=comments'">Clock Diary</button>
+										<button class="btn btn-default" type="button" onclick="location.href='comments'">Clock Diary</button>
 
 										<div class="btn-group">
 
@@ -110,41 +110,41 @@
 											</button>
 
 											<ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupVerticalDrop1">
-											  <li><a href="#" onclick="location.href='main.php?menu_option=last30days'">Summary 30 Days</a></li>
-											  <li><a href="#" onclick="location.href='main.php?menu_option=daily'">Summary 1 Day</a></li>
-											  <li><a href="#" onclick="location.href='main.php?menu_option=data&from=-7days&to=today&channel=going&channel2=pressure&type=xy'">Going vs. Pressure</a></li>
-											  <li><a href="#" onclick="location.href='main.php?menu_option=data&from=-7days&to=today&channel=going&channel2=temp&type=xy'">Going vs. Temperature</a></li>
-                                              <li><a href="#" onclick="location.href='main.php?menu_option=data&from=-30days&channel=drift&channel2=temp&to=today&scale=auto&type=two'">Drift & temperature</a></li>
-											  <li><a href="#" onclick="location.href='main.php?menu_option=interesting'">Interesting Plots</a></li>
-											  <li><a href="#" onclick="location.href='main.php?menu_option=monitor'">Monitor</a></li>
+											  <li><a href="#" onclick="location.href='last30days'">Summary 30 Days</a></li>
+											  <li><a href="#" onclick="location.href='daily'">Summary 1 Day</a></li>
+											  <li><a href="#" onclick="location.href='data?from=-7days&to=today&channel=going&channel2=pressure&type=xy'">Going vs. Pressure</a></li>
+											  <li><a href="#" onclick="location.href='data?from=-7days&to=today&channel=going&channel2=temp&type=xy'">Going vs. Temperature</a></li>
+                                              <li><a href="#" onclick="location.href='data?from=-30days&channel=drift&channel2=temp&to=today&scale=auto&type=two'">Drift & temperature</a></li>
+											  <li><a href="#" onclick="location.href='interesting'">Interesting Plots</a></li>
+											  <li><a href="#" onclick="location.href='monitor'">Monitor</a></li>
 											  <li><a href="tempodb/" target="_blank">TempoDB Graphs</a></li>
 											</ul>
 
 										</div>
 
-										<button class="btn btn-default" type="button" onclick="location.href='main.php?menu_option=instrumentation'">Instrumentation</button>
+										<button class="btn btn-default" type="button" onclick="location.href='instrumentation'">Instrumentation</button>
 
-										<button class="btn btn-default" type="button" onclick="location.href='main.php?menu_option=theory'">Theory</button>
+										<button class="btn btn-default" type="button" onclick="location.href='theory'">Theory</button>
 
-										<button class="btn btn-default" type="button" onclick="location.href='main.php?menu_option=escapement'">Escapement</button>
+										<button class="btn btn-default" type="button" onclick="location.href='escapement'">Escapement</button>
 
-										<button class="btn btn-default" type="button" onclick="location.href='main.php?menu_option=pigeons'">Pigeons</button>
+										<button class="btn btn-default" type="button" onclick="location.href='pigeons'">Pigeons</button>
 
-										<button class="btn btn-default" type="button" onclick="location.href='main.php?menu_option=temperature'">Temperature Compensator</button>
+										<button class="btn btn-default" type="button" onclick="location.href='temperature'">Temperature Compensator</button>
 
-										<button class="btn btn-default" type="button" onclick="location.href='main.php?menu_option=barometric'">Barometric Compensator</button>
+										<button class="btn btn-default" type="button" onclick="location.href='barometric'">Barometric Compensator</button>
 
-										<button class="btn btn-default" type="button" onclick="location.href='main.php?menu_option=photos'">Photos</button>
+										<button class="btn btn-default" type="button" onclick="location.href='photos'">Photos</button>
 
-										<button class="btn btn-default" type="button" onclick="location.href='main.php?menu_option=webcam'">Webcam</button>
+										<button class="btn btn-default" type="button" onclick="location.href='webcam'">Webcam</button>
 
-										<button class="btn btn-default" type="button" onclick="location.href='main.php?menu_option=talkspubs'">Talks and Publications</button>
+										<button class="btn btn-default" type="button" onclick="location.href='talkspubs'">Talks and Publications</button>
 
-										<button class="btn btn-default" type="button" onclick="location.href='main.php?menu_option=credits'">Credits</button>
+										<button class="btn btn-default" type="button" onclick="location.href='credits'">Credits</button>
 
-										<button class="btn btn-default" type="button" onclick="location.href='main.php?menu_option=twitter'">Twitter</button>
+										<button class="btn btn-default" type="button" onclick="location.href='twitter'">Twitter</button>
 
-										<button class="btn btn-default" type="button" onclick="location.href='main.php?menu_option=keeper'">Keeper Of The Clock</button>
+										<button class="btn btn-default" type="button" onclick="location.href='keeper'">Keeper Of The Clock</button>
 
 									</div>
 
@@ -156,14 +156,14 @@
 								<div style="float:left;padding:20px;font-size:10px">
 
 
-									  <img src="https://trin-hosts.trin.cam.ac.uk/clock/img/clock.gif" style="border:none;width:200px;border-radius:30px;-moz-border-radius:30px;-khtml-border-radius:30px;-webkit-border-radius:30px;" />
+									  <img src="{{site.url}}img/clock.gif" style="border:none;width:200px;border-radius:30px;-moz-border-radius:30px;-khtml-border-radius:30px;-webkit-border-radius:30px;" />
 
 								</div>
 
 								<div style="float:left;padding:20px;font-size:10px">
 
 
-									  <img src="https://trin-hosts.trin.cam.ac.uk/clock/img/gravity_escapement.gif" style="border:none;width:200px;border-radius:30px;-moz-border-radius:30px;-khtml-border-radius:30px;-webkit-border-radius:30px;" />
+									  <img src="{{site.url}}img/gravity_escapement.gif" style="border:none;width:200px;border-radius:30px;-moz-border-radius:30px;-khtml-border-radius:30px;-webkit-border-radius:30px;" />
 
 
 								</div>

@@ -1,1 +1,9 @@
 url: https://trin-hosts.trin.cam.ac.uk/clock/
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      title: The Trinity Clock
+      layout: default

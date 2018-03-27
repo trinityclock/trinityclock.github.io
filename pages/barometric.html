@@ -1,0 +1,58 @@
+---
+title: Barometric Compensation
+permalink: barometric
+---
+				<!--bof info panel 2 heading-->
+				<div class="panel-heading">
+
+				<h4>Barometric Compensation</h4>
+
+				</div>
+
+				<!--bof info panel 2 body-->
+				<div class="panel-body" >
+
+
+
+At the clock change, just after midnight on 28 March 2010, a trial barometric compensator was installed.  The idea is to correct for the slope of the "going vs pressure" graph.  The slope is  about -8ms/day per mbar and the main effect appears to be buoyancy caused by change in air density.  The objective is to adjust the compensator to get a zero gradient.  The <a href="<?php echo get_theory_base_url(0); ?>theory/barocomptheory.pdf">theory of a barometric compensator</a> is a bit subtle.
+<br>Here is the data from the first 4 weeks since compensation, compared with before compensation:
+
+<table>
+<tr>
+<td>
+<a href="{{site.url}}data?from=28/04/2010&to=today&channel=going&channel2=pressure&type=xy&scale=fixed&skip=30" ><img src="{{site.url}}img/postbarocomp_GvP.png" width="420"></a>
+<br>&emsp;&emsp;After compensation (red lines +1.0ms/day per mbar)
+</td>
+<td>
+<a href="{{site.url}}data?from=01/09/2009&to=13/09/2009&channel=going&channel2=pressure&type=xy&scale=fixed">
+<img src="{{site.url}}img/prebarocomp_GvP.png" width="420"></a>
+<br>&emsp;&emsp;Before compensation (red lines -8.6ms/day per mbar)
+</td>
+</tr>
+</table>
+Click on the graphs for the latest, interactive data.  It'll take a few weeks to evaluate its performance fully.
+<table>
+<tr>
+<td valign="top">
+<a><IMG height=360 SRC="{{site.url}}img/barocomp1.jpg"></a>
+<br>
+Barometric compensator.  <br>
+Each of the two brass masses weighs 750g.
+<td valign="top">
+<a><IMG height=360 SRC="{{site.url}}img/barocomp2.jpg"></a>
+<br>
+Compensator as installed early in the morning of <br>
+28 March 2010.
+</td>
+</tr>
+</table>
+<a><IMG height=360 SRC="{{site.url}}img/compensator1.gif"></a>
+<br>Side view of the compensator attached to the pendulum.  There's a bit of a wobble on the pendulum - needs straightening out.
+
+
+
+				<!--eof info panel 2 body-->
+				</div>
+
+
+

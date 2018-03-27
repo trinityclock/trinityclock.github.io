@@ -1,0 +1,118 @@
+---
+title: Daily Data
+permalink: daily
+---
+<!--bof info panel 2 heading-->
+<div class="panel-heading">
+<h4>Daily Data</h4>
+</div>
+<!--bof info panel 2 body-->
+<div class="panel-body" >
+
+<?php
+
+include_once("functions.php");
+
+# Use UTC
+date_default_timezone_set('UTC');
+
+function query_url($year, $month, $day)
+{
+	$day = mktime(0, 0, 0, $month, $day, $year); # deal with wrapping round months
+	return "{{site.url}}daily&date=" . date("d/m/Y",$day);
+}
+
+# --- Argument processing -------------------------------------------------------------------------
+
+$today = getdate();
+
+$req_date = 0;
+if (isset($_REQUEST['date'])) {
+	# strtotime interprets dates with slashes as mm/dd/yyyy, but with dashes as dd-mm-yyyy, which we prefer.
+	$req_date = strtotime(str_replace('/', '-', strip_trash($_REQUEST['date'])));
+	$dd = getdate($req_date);
+	$year = $dd['year'];
+	$month = $dd['mon'];
+	$day = $dd['mday'];
+}
+if ($req_date == 0) {
+	$year  = (!empty($_REQUEST['year']))?  strip_trash($_REQUEST['year'])  : $today['year'];
+	$month = (!empty($_REQUEST['month']))? strip_trash($_REQUEST['month']) : $today['mon'];
+	$day   = (!empty($_REQUEST['day']))?   strip_trash($_REQUEST['day'])   : $today['mday'];
+	$req_date = mktime(0,0,0, $month, $day, $year);
+}
+
+$dstr = date("d/m/Y",$req_date);
+
+$width  = request('width',  700);
+$height = request('height', 200);
+$scale  = request('scale',  'fixed');
+
+$saved_opts = "&width=$width&height=$height&scale=$scale";
+
+# --- User interface ------------------------------------------------------------------------------
+
+?>
+
+<p><form method="get" name="daily" action="main.php">
+<input type="hidden" name="menu_option" id="menu_option" value="<?php echo request('menu_option', 'introduction'); ?>">
+
+<input type="hidden" name="width"  id="width"  value="<?php echo $width;  ?>">
+<input type="hidden" name="height" id="height" value="<?php echo $height; ?>">
+
+[ <a href="<?php echo (query_url($year, $month, $day-1) . $saved_opts); ?>">Previous day</a> |
+  <a href="<?php echo ('{{site.url}}daily'     . $saved_opts); ?>">Today</a> |
+  <a href="<?php echo (query_url($year, $month, $day+1) . $saved_opts); ?>">Next day</a> ]
+
+<span style="margin-left:20px;">
+
+Go to date: <?php make_date_chooser("date", $req_date); ?>
+
+<?php make_select ("scale", $scale, array('fixed' => 'fixed scale', 'auto' => 'auto scale')); ?>
+
+<input class="btn btn-primary" type="submit" value="Go"></p>
+</span>
+
+</form></p>
+
+<?php
+
+# --- Results display -----------------------------------------------------------------------------
+
+$graphopts =
+	"&from=$dstr" .
+	"&width=$width&height=$height" .
+	($scale == "auto" ? "&autoscale" : "");
+
+$clist = array('drift', 'going', 'amp', 'tilt', 'twist', 'twistphase', 'temp', 'rh', 'pressure', 'density', 'cavity');
+foreach ($clist as $c) {
+    echo "<p>";
+    echo "<a href='?menu_option=data&channel=$c&from=$dstr&scale=$scale'/>";
+    echo "<img src='graph/?channel=$c$graphopts'/>";
+    echo "</a></p>";
+}
+
+# --- Comments list -------------------------------------------------------------------------------
+
+echo "<h3>Comments <span style='font-size:smaller;'>(<a href='?menu_option=comments'>see all</a> | <a href='?menu_option=drift-history'>edit</a>)</span></h3>\n\n<dl class='table'>\n";
+
+require_once('clockdata.php');
+$to=date("d/m/Y",$req_date);
+$todate = strtotime(str_replace('/', '-', $to));
+
+list($drift_correction, $comments) = clockdata::corrections_comments($todate,$todate+86400);
+foreach ($comments as $ts=>$comment) {
+	echo "<dt>".date("d M Y \[H:i\]",$ts)."</dt><dd>".trim($comment)."</dd>\n";
+}
+
+echo "</dl>\n";
+
+# --- Download tools ------------------------------------------------------------------------------
+
+require_once ('download.php');
+print_download_controls($req_date, $req_date);
+
+?>
+
+<!--eof info panel 2 body-->
+</div>

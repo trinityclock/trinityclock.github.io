@@ -1,0 +1,43 @@
+---
+title: Instrumentation
+permalink: instrumentation
+---
+				<!--bof info panel 2 heading-->
+				<div class="panel-heading">
+
+				<h4>Instrumentation</h4>
+
+				</div>
+
+				<!--bof info panel 2 body-->
+				<div class="panel-body" >
+
+
+<p>The pendulum is fitted with an infrared optic sensor which is occluded four times per period producing a rectangular wave.  The amplitude at the sensor is about 50mm (100mm peak-peak) and the distance from the fulcrum to the sensor is, conveniently, about 1m - hence the amplitude can be measured in mm or mrad interchangeably.</p>
+
+<p>A GPS receiver generates a 1pps square wave.  This signal is accurate to 10ns, so they say.  The infrared signal and the GPS signal are digitised simultaneously by a datalogger (ADC).  Some clever data processing permits the pendulum period and amplitude to be deduced to high accuracy, once every 3 seconds.</p>
+
+<p>A weather station measures temperature, pressure and humidity.  Air density is calculated from these three properties according to an accepted formula.  The data is logged once every 10 minutes.</p>
+
+<p>All the data is saved on a local PC running OpenSuse (Linux).  The data processing is performed in C++.  Data is uploaded to the server every 3 hours.</p>
+
+<p>For more details see <a href="{{site.url}}theory/instrumentation.pdf">Instrumentation and data processing</a>, and for even more go to the <a href="{{site.url}}theory">Theory</a> page.</p>
+
+<p>There is a lot more we'd like to measure:</p>
+<ul>
+<li>motion of the tower (perhaps glitches are related to seismic activity);</li>
+<li>install variable drag on the pendulum to neutralise sensitvity to air pressure changes;</li>
+<li>air currents up the pendulum chamber (air flowing up or down will change the amplitude and going);</li>
+<li>measure the actual time displayed on the clock face (we detect only seconds, and can't tell which second we're on)</li>
+<li>sound (it'd be nice to hear the ticking realtime and also the bells)</li>
+<li>winding alert (it would be good to get a warning before the clock stops, if we forget to wind it)</li>
+<li>and of course we need the webcam working...</li>
+</ul>
+<p>If anyone wants to help, then please contact the Keeper of the Clock.</p>
+
+
+					<!--eof info panel 2 body-->
+					</div>
+
+
+
